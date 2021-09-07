@@ -1,0 +1,1 @@
+import{o as n,c as s,a}from"./app.bb0c571a.js";const t='{"title":"深浅拷贝","description":"","frontmatter":{},"relativePath":"手写/深浅拷贝.md","lastUpdated":1628873174654}',p={},o=[a('',3)];p.render=function(a,t,p,c,e,u){return n(),s("div",null,o)};export{t as __pageData,p as default};
