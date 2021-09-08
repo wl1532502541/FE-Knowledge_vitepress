@@ -17,14 +17,7 @@ function buildChildren(path, parentName = "") {
       if (fs.statSync(subPath).isDirectory()) {
         current.children = buildChildren(subPath, `${parentName}/${file}`);
       } else {
-        if (file === "README.md") {
-          current.link = `${parentName}/`;
-        } else {
-          // const suffixName = file.slice(-3);
-          // if (suffixName !== ".md") return;
-          // current.link = `${parentName}/${file}`;
-          current.link = `${parentName}/${file.slice(0, -3)}`;
-        }
+        current.link = `${parentName}/${file.slice(0, -3)}`;
       }
       return current;
     })
@@ -32,9 +25,8 @@ function buildChildren(path, parentName = "") {
 }
 
 const sidebar = buildChildren(workPath);
-console.log(sidebar)
 module.exports = {
-    title: 'Hello VitePress',
+    title: '前端知识整理',
     description: 'Just playing around.',
     head:[
         ['meta',{name:'referrer',content:'never'}],//会出现在html的head里，用来绕过语雀的图片防盗链
@@ -42,40 +34,12 @@ module.exports = {
     ],
     base:"/FE-Knowledge2/",
     themeConfig: {
-        repo: 'vuejs/vitepress',
+        repo: 'wl1532502541/FE-Knowledge2',
         docsDir: 'docs',
-    
-        // editLinks: true,
-        // editLinkText: 'Edit this page on GitHub',
-        // lastUpdated: 'Last Updated',
-    
-        // algolia: {
-        //   apiKey: 'c57105e511faa5558547599f120ceeba',
-        //   indexName: 'vitepress'
-        // },
-    
-        // carbonAds: {
-        //   carbon: 'CEBDT27Y',
-        //   custom: 'CKYD62QM',
-        //   placement: 'vuejsorg'
-        // },
-    
-        // nav: [
-        //   { text: 'Guide', link: '/', activeMatch: '^/$|^/guide/' }
-        // ],
+        logo:'/logo/book.png',
+        nav: [
+          { text: '首页', link: '/'}
+        ],
         sidebar
-        // sidebar:{'/':[
-        //     {
-        //         text:'123',
-        //         children:[
-        //             {text:'123',link:'/'}
-        //         ]
-        //     }
-        // ]}
-        // sidebar: {
-        //   '/guide/': getGuideSidebar(),
-        //   '/config/': getConfigSidebar(),
-        //   '/': getGuideSidebar()
-        // }
       }
 }
