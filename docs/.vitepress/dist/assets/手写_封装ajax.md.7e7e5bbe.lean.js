@@ -1,1 +1,0 @@
-import{o as n,c as s,a}from"./app.bb0c571a.js";const t='{"title":"封装ajax","description":"","frontmatter":{},"relativePath":"手写/封装ajax.md","lastUpdated":1628873189406}',p={},o=[a('',2)];p.render=function(a,t,p,c,e,u){return n(),s("div",null,o)};export{t as __pageData,p as default};
