@@ -24,7 +24,6 @@ function buildChildren(path, parentName = "") {
           // if (suffixName !== ".md") return;
           // current.link = `${parentName}/${file}`;
           current.link = `${parentName}/${file.slice(0, -3)}`;
-        //   current=`${parentName}/${file}`
         }
       }
       return current;
@@ -40,7 +39,8 @@ module.exports = {
     head:[
         ['meta',{name:'referrer',content:'never'}],//会出现在html的head里，用来绕过语雀的图片防盗链
         ['link',{href:'/logo/klee.ico',rel:'SHORTCUT ICON'}]
-      ],
+    ],
+    base:"/FE-Knowledge2/",
     themeConfig: {
         repo: 'vuejs/vitepress',
         docsDir: 'docs',
