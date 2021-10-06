@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import NavLinks from './NavLinks.vue'
-import SideBarLinks from './SideBarLinks.vue'
+import NavLinks from "./NavLinks.vue";
+import SideBarLinks from "./SideBarLinks.vue";
 
-defineProps<{ open: boolean }>()
+defineProps<{ open: boolean }>();
 </script>
 
 <template>
