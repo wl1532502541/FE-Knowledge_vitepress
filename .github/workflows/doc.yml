@@ -53,7 +53,7 @@ jobs:
           # 部署目录为 VitePress 的默认输出目录
           # build_dir: docs/.vitepress/dist
           # 部署目录为 base
-          # build_dir: docs/FE-Knowledge2
+          build_dir: docs/FE-Knowledge2
         env:
           # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
