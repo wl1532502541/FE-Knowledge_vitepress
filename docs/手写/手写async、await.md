@@ -113,4 +113,5 @@ var test = asyncToGenerator(
 test().then(res => console.log(res))
 ```
 
+参考：https://blog.csdn.net/xgangzai/article/details/106536325
 
