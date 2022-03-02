@@ -25,11 +25,11 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
   .hello-world {
   /*hack*/
   box-sizing: content-box;
-  width: 12ch;
+  width: 11ch;
   overflow: hidden;
   white-space: nowrap;
   font-size:40px;
-  animation: typing 2s steps(12),blink 0.5s step-end infinite alternate;
+  animation: typing 2s steps(11),blink 0.5s step-end infinite alternate;
   border-right: 5px solid black;
   font-family: monospace;
 }
@@ -49,6 +49,7 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 
 <div class="flex">
   <div class="hello-world">
-    Hello World!
+    <!-- Hello World! -->
+    by Leinaldo
   </div>
 </div>
