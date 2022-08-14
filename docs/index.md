@@ -15,7 +15,7 @@ actionLink: /浏览器/浏览器内核的理解
 #     details: 和可莉去炸鱼
 #   - title: 8小时休息
 #     details: 呼呼睡大觉
-footer: MIT Licensed | Copyright © 2018-present Evan You
+footer: MIT Licensed | Copyright © 2021-present Leinaldo
 ---
 
 <style>
