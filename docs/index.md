@@ -1,10 +1,12 @@
 ---
 home: true
 heroImage: /logo/klee.jpg
-heroText: leinaldo
-tagline: 前端知识整理
+# heroText: leinaldo
+heroText: 前端知识整理
+# tagline: 前端知识整理
 # tagline: Hello World!
-actionText: I need offer →
+# actionText: I need offer →
+actionText: Go Go Go →
 actionLink: /浏览器/浏览器内核的理解
 # features:
 #   - title: 8小时工作
