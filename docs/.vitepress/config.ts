@@ -1,21 +1,19 @@
-const fs = require("fs");
-const path = require("path");
-const process = require("process");
+import * as fs from "fs"
+import * as path from "path"
+import * as process from "process"
 
-const ignoreList = [".vitepress", "README.md", "public", "index.md"];
+const ignoreList = [".vitepress", "README.md", "public", "index.md", ".DS_Store"];
 
-const workPath = path.join(process.cwd() + "/docs");
-
-function buildChildren (path, parentName = "") {
+function buildChildren(path, parentName = "") {
   const files = fs.readdirSync(path);
   return files
     .map((file) => {
       if (ignoreList.includes(file)) return;
-      // const current = { text: file };
-      let current = { text: file };
+      let current = { text: file } as { text: string, items?: any, link?: any, collapsible: boolean };
       const subPath = `${path}/${file}`;
       if (fs.statSync(subPath).isDirectory()) {
-        current.children = buildChildren(subPath, `${parentName}/${file}`);
+        current.items = buildChildren(subPath, `${parentName}/${file}`);
+        current.collapsible = true
       } else {
         current.link = `${parentName}/${file.slice(0, -3)}`;
         current.text = `${file.slice(0, -3)}`;
@@ -25,22 +23,32 @@ function buildChildren (path, parentName = "") {
     .filter((item) => item);
 }
 
+const workPath = path.join(process.cwd() + "/docs");
 const sidebar = buildChildren(workPath);
-module.exports = {
+
+export default {
   title: '前端知识整理',
-  description: 'Just playing around.',
   head: [
     ['meta', { name: 'referrer', content: 'never' }],//会出现在html的head里，用来绕过语雀的图片防盗链
     ['link', { href: './logo/klee.ico', rel: 'SHORTCUT ICON' }]
   ],
   base: "/FE-Knowledge2/",
+  lastUpdated: true,
   themeConfig: {
-    repo: 'wl1532502541/FE-Knowledge2',
     docsDir: 'docs',
     logo: '/logo/book.png',
     nav: [
       { text: '首页', link: '/' }
     ],
-    sidebar
+    sidebar,
+    footer: {
+      message: 'MIT Licensed',
+      copyright: 'Copyright © 2021-present Leinaldo'
+    },
+    // algolia: {
+    //   appId: '...',
+    //   apiKey: '...',
+    //   indexName: '...'
+    // }
   }
 }
