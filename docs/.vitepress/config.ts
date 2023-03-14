@@ -106,7 +106,7 @@ export default withPwa(
       },
       pwa: {
         mode: 'development',
-        base: '/',
+        base: '/FE-Knowledge2/',
         scope: '/',
         registerType: 'autoUpdate',
         // injectRegister: 'inline',
