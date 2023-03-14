@@ -107,7 +107,7 @@ export default withPwa(
       pwa: {
         mode: 'development',
         base: '/FE-Knowledge2/',
-        scope: '/',
+        scope: '/FE-Knowledge2/',
         registerType: 'autoUpdate',
         // injectRegister: 'inline',
         // includeAssets: ['favicon.svg'],
