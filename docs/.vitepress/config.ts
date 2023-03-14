@@ -117,7 +117,7 @@ export default withPwa(
           theme_color: '#ffffff',
           icons: [
             {
-              src: 'colagirl-192x192',
+              src: 'colagirl-192x192.png',
               sizes: '192x192',
               type: 'image/png',
             },
