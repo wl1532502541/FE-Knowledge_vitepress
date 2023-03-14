@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "@vite-pwa/vitepress": "^0.0.5",
+    "vite-plugin-pwa": "^0.14.4",
     "vitepress": "^1.0.0-alpha.40"
   },
   "scripts": {
