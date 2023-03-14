@@ -4,7 +4,7 @@ import * as process from "process"
 import { defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
 
-const ignoreList = [".vitepress", "README.md", "public", "index.md", ".DS_Store"];
+const ignoreList = [".vitepress", "README.md", "public", "index.md", ".DS_Store", "dev-dist"];
 
 function buildChildren(path, parentName = "") {
   const files = fs.readdirSync(path);
