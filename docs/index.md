@@ -2,10 +2,12 @@
 layout: home
 hero:
   name: 前端知识整理
-  # text: 
+  # text:
   tagline: (鸡 几粒米 笔记本).jpg
   image:
-    src: /logo/klee.jpg
+    # src: /logo/klee.jpg
+    # src: colagirl-192x192.png
+    src: colagirl-512x512.png
     alt: fe-knowledge
   actions:
     - theme: brand
