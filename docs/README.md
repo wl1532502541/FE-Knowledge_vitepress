@@ -15,7 +15,7 @@
   - [ ] HTTP
   - [ ] TCP
 - [ ] 前后端通信
-  - [ ] HTTP GRPC TRPC
+  - [ ] REST GraphQL GRPC TRPC
 - [ ] 高频手写
 - [ ] 浏览器原理
 - [ ] 基础三大件
@@ -38,7 +38,7 @@
   - [ ] React Native
   - [ ] Flutter
   - [ ] Taro
-- [] 算法
+- [ ] 算法
   - [ ] 并查集
   - [x] 线段树
   - [x] 基本排序算法
