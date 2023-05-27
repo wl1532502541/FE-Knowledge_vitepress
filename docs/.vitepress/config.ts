@@ -8,25 +8,28 @@ const ignoreList = [".vitepress", "README.md", "public", "index.md", ".DS_Store"
 
 function buildChildren(path, parentName = "") {
   const files = fs.readdirSync(path);
-  return files
+  return [files
     .map((file) => {
       if (ignoreList.includes(file)) return;
-      let current = { text: file } as { text: string, items?: any, link?: any, collapsible: boolean };
+      let current = { text: file } as { text: string, items?: any, link?: any, collapsible: boolean, collapsed: boolean };
       const subPath = `${path}/${file}`;
       if (fs.statSync(subPath).isDirectory()) {
-        current.items = buildChildren(subPath, `${parentName}/${file}`);
+        let res = buildChildren(subPath, `${parentName}/${file}`)
+        current.items = res[0];
         current.collapsible = true
+        current.collapsed = true
+        current.text += `  (${res[1]})`
       } else {
         current.link = `${parentName}/${file.slice(0, -3)}`;
         current.text = `${file.slice(0, -3)}`;
       }
       return current;
     })
-    .filter((item) => item);
+    .filter((item) => item), files.length]
 }
 
 const workPath = path.join(process.cwd() + "/docs");
-const sidebar = buildChildren(workPath);
+const sidebar = buildChildren(workPath)[0];
 
 export default withPwa(
   defineConfig(
