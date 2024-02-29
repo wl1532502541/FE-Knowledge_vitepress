@@ -18,21 +18,49 @@ fs.readdir(componentsDir, (err, files) => {
     return;
   }
 
-  files.forEach(file => {
-    if (file.endsWith('.vue')) {
-      const componentName = file.replace('.vue', '');
-      const componentPath = path.join(componentsDir, file);
-      const mdPath = path.join(docsDir, `${componentName}.md`);
+  files.forEach(name => {
+    console.log("name", name)
+    // 区分文件夹和文件
+    fs.stat(path.join(componentsDir, name), (err, stats) => {
+      if (err) {
+        console.error("无法获取文件状态: ", err);
+        return;
+      }
 
-      // 读取.vue文件的内容
-      const content = fs.readFileSync(componentPath, 'utf8');
+      let componentName;
+      // = name.replace('.vue', '');
+      if (stats.isDirectory()) {
+        console.log(`${path.join(componentsDir, name)} 是一个文件夹`);
+        componentName = name
+        name = name + "/index.vue"
+      } else if (stats.isFile()) {
+        console.log(`${path.join(componentsDir, name)} 是一个文件`);
+        componentName = name.replace('.vue', '')
+      }
+      // 还可以使用 stats.isSymbolicLink(), stats.isBlockDevice(), 等来检查其他类型
+      if (name.endsWith('.vue')) {
+        // if(name=="index.vue"){
+        //   // 获取完整的文件或子目录路径
+        // const fullPath = path.join(parentDirPath, file);
+        // // 使用path.basename获取父目录名称
+        // // 注意：这里的"parentDirName"实际上会是你提供的parentDirPath的最后一部分
+        // const parentDirName = path.basename(path.dirname(fullPath));
+        // }
+        // const componentName = name.replace('.vue', '');
+        const componentPath = path.join(componentsDir, name);
+        const mdPath = path.join(docsDir, `${componentName}.md`);
 
-      // 生成Markdown文件内容
-      const mdContent = `# ${componentName}\n\n## \n <${componentName}/>\n\n## \n \`\`\`vue\n${content}\n\`\`\``;
+        // 读取.vue文件的内容
+        const content = fs.readFileSync(componentPath, 'utf8');
 
-      // 写入Markdown文件
-      fs.writeFileSync(mdPath, mdContent, 'utf8');
-      console.log(`Generated Markdown for ${componentName}`);
-    }
+        // 生成Markdown文件内容
+        const mdContent = `# ${componentName}\n\n## \n <${componentName}/>\n\n## \n \`\`\`vue\n${content}\n\`\`\``;
+
+        // 写入Markdown文件
+        fs.writeFileSync(mdPath, mdContent, 'utf8');
+        console.log(`Generated Markdown for ${componentName}`);
+      }
+    });
+
   });
 });
