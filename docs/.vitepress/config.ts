@@ -45,7 +45,6 @@ export default withPwa(
       base: "/FE-Knowledge2/",
       lastUpdated: true,
       themeConfig: {
-        docsDir: 'docs',
         logo: '/logo/book.png',
         nav: [
           { text: '首页', link: '/' }

@@ -16,5 +16,6 @@
   "dependencies": {
     "@types/node": "^18.11.18",
     "sass": "^1.70.0"
-  }
+  },
+  "type":"module"
 }

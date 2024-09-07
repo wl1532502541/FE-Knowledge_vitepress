@@ -7,7 +7,7 @@ export default {
   enhanceApp: async ({ app }) => {
     // app.use(LnUi)
     // 遍历cssdemos，注册组件
-    const components = import.meta.globEager('./css_demos/**/*.vue');
+    const components = import.meta.glob('./css_demos/**/*.vue', { eager: true });
     Object.entries(components).forEach(([path, component]) => {
       console.log("vitepress path component", path, component)
       // 获取组件名称，可以根据文件名或其他逻辑定制
