@@ -50,12 +50,14 @@ onMounted(() => {
     border-radius: 5% / 3.5%;
 
     transition: transform 0.1s ease,
-      box-shadow 0.2s ease;
+      box-shadow 0.2s ease,
+      scale 0.2s ease;
     scale: 1;
 
     &:hover {
       box-shadow: 0 20px 40px black;
       scale: 1.5;
+      cursor: pointer;
     }
   }
 

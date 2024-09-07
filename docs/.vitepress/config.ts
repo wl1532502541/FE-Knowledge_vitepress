@@ -1,35 +1,32 @@
 import * as fs from "fs"
 import * as path from "path"
 import * as process from "process"
-import { defineConfig } from 'vitepress'
+import { DefaultTheme, defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
 
 const ignoreList = [".vitepress", "README.md", "public", "index.md", ".DS_Store", "dev-dist"];
 
 function buildChildren(path, parentName = "") {
-  const files = fs.readdirSync(path);
-  return [files
+  const files = fs.readdirSync(path).filter((file) => !ignoreList.includes(file));
+  return files
     .map((file) => {
-      if (ignoreList.includes(file)) return;
-      let current = { text: file } as { text: string, items?: any, link?: any, collapsible: boolean, collapsed: boolean };
+      let current = { text: file } as DefaultTheme.SidebarItem
       const subPath = `${path}/${file}`;
       if (fs.statSync(subPath).isDirectory()) {
         let res = buildChildren(subPath, `${parentName}/${file}`)
-        current.items = res[0];
-        current.collapsible = true
+        current.items = res;
         current.collapsed = true
-        current.text += `  (${res[1]})`
+        current.text += `  (${res.length})`
       } else {
         current.link = `${parentName}/${file.slice(0, -3)}`;
         current.text = `${file.slice(0, -3)}`;
       }
       return current;
     })
-    .filter((item) => item), files.length]
 }
 
 const workPath = path.join(process.cwd() + "/docs");
-const sidebar = buildChildren(workPath)[0];
+const sidebar = buildChildren(workPath);
 
 export default withPwa(
   defineConfig(
