@@ -309,3 +309,56 @@ type cases = [
   Expect<Equal<Includes<[undefined], null>, false>>,
 ]
 ```
+
+### 3057 - Push
+```ts
+/* _____________ 你的代码 _____________ */
+
+type Push<T extends unknown[], U> = [...T, U]
+
+/* _____________ 测试用例 _____________ */
+import type { Equal, Expect } from '@type-challenges/utils'
+
+type cases = [
+  Expect<Equal<Push<[], 1>, [1]>>,
+  Expect<Equal<Push<[1, 2], '3'>, [1, 2, '3']>>,
+  Expect<Equal<Push<['1', 2, '3'], boolean>, ['1', 2, '3', boolean]>>,
+]
+
+```
+
+### 3060 - Unshift
+```ts
+/* _____________ 你的代码 _____________ */
+
+type Unshift<T extends unknown[], U> = [U, ...T]
+
+/* _____________ 测试用例 _____________ */
+import type { Equal, Expect } from '@type-challenges/utils'
+
+type cases = [
+  Expect<Equal<Unshift<[], 1>, [1]>>,
+  Expect<Equal<Unshift<[1, 2], 0>, [0, 1, 2]>>,
+  Expect<Equal<Unshift<['1', 2, '3'], boolean>, [boolean, '1', 2, '3']>>,
+]
+```
+
+### 3312 - Parameters
+```ts
+/* _____________ 你的代码 _____________ */
+
+type MyParameters<T extends (...args: any[]) => any> = T extends (...args: infer A) => any ? A : never
+
+/* _____________ 测试用例 _____________ */
+import type { Equal, Expect } from '@type-challenges/utils'
+
+function foo(arg1: string, arg2: number): void { }
+function bar(arg1: boolean, arg2: { a: 'A' }): void { }
+function baz(): void { }
+
+type cases = [
+  Expect<Equal<MyParameters<typeof foo>, [string, number]>>,
+  Expect<Equal<MyParameters<typeof bar>, [boolean, { a: 'A' }]>>,
+  Expect<Equal<MyParameters<typeof baz>, []>>,
+]
+```
