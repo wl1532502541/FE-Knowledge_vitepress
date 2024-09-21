@@ -3,6 +3,7 @@ import * as path from "path"
 import * as process from "process"
 import { DefaultTheme, defineConfig } from 'vitepress'
 import { withPwa } from '@vite-pwa/vitepress'
+import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
 
 const ignoreList = [".vitepress", "README.md", "public", "index.md", ".DS_Store", "dev-dist"];
 
@@ -28,7 +29,8 @@ function buildChildren(path, parentName = "") {
 const workPath = path.join(process.cwd() + "/docs");
 const sidebar = buildChildren(workPath);
 
-export default withPwa(
+export default
+  // withPwa(
   defineConfig(
     {
       vite: {
@@ -140,7 +142,13 @@ export default withPwa(
           enabled: true,
           navigateFallback: '/',
         },
+      },
+      markdown: {
+        config(md) {
+          md.use(containerPreview)
+          md.use(componentPreview)
+        }
       }
     }
   )
-)
+// )

@@ -15,10 +15,12 @@
     justify-content: center;
     align-items: center;
   }
+
   h1 {
     cursor: pointer;
     position: relative;
   }
+
   h1::before {
     content: ' ';
     display: block;
@@ -31,6 +33,7 @@
     transform: scaleX(0);
     transform-origin: right;
   }
+
   h1:hover::before {
     transform: scaleX(1);
     transform-origin: left;

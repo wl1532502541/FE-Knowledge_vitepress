@@ -1,7 +1,3 @@
-// console.log('hello')
-// const fs = require('fs');
-// const path = require('path');
-
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -34,11 +30,9 @@ fs.readdir(componentsDir, (err, files) => {
       let componentName;
       // = name.replace('.vue', '');
       if (stats.isDirectory()) {
-        console.log(`${path.join(componentsDir, name)} 是一个文件夹`);
         componentName = name
         name = name + "/index.vue"
       } else if (stats.isFile()) {
-        console.log(`${path.join(componentsDir, name)} 是一个文件`);
         componentName = name.replace('.vue', '')
       }
       // 还可以使用 stats.isSymbolicLink(), stats.isBlockDevice(), 等来检查其他类型

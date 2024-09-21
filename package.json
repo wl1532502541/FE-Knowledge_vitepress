@@ -9,13 +9,16 @@
     "vitepress": "^1.0.0-alpha.40"
   },
   "scripts": {
-    "docs:dev": "node scripts/generateCssMarkdowns.js && vitepress dev docs",
+    "docs:dev0": "node scripts/generateCssMarkdowns.js && vitepress dev docs",
+    "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:serve": "vitepress serve docs"
   },
   "dependencies": {
     "@types/node": "^18.11.18",
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.2.3",
     "sass": "^1.70.0"
   },
-  "type":"module"
+  "type": "module"
 }
