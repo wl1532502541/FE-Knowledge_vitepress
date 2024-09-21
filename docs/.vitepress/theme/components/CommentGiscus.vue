@@ -1,0 +1,28 @@
+<script setup lang="ts">
+import { useData, useRoute } from 'vitepress'
+import { nextTick, ref, watch } from 'vue'
+import Giscus from '@giscus/vue'
+
+const { isDark } = useData()
+
+const route = useRoute()
+const showComment = ref(false)
+watch(
+  route,
+  () => {
+    showComment.value = false
+    nextTick(() => {
+      showComment.value = true
+    })
+  },
+  {
+    immediate: true
+  }
+)
+</script>
+
+<template>
+  <Giscus id="comments" repo="wl1532502541/FE-Knowledge2" repo-id="MDEwOlJlcG9zaXRvcnk0MDM5MDk2NjY="
+    category="Announcements" category-id="DIC_kwDOGBMsIs4CirB3" mapping="pathname" reactionsEnabled="1" emitMetadata="0"
+    inputPosition="top" lang="zh-CN" loading="lazy" :theme="isDark ? 'dark' : 'light'" />
+</template>

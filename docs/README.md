@@ -6,7 +6,7 @@
 
 - [ ] 自定义主题
 - [x] 文档搜索 by algolia
-- [ ] 留言评论
+- [x] 留言评论 by @giscus/vue
 - [x] PWA 支持 by vite-plugin-pwa
 - [x] Vue SFC preview by @vitepress-demo-preview
 
