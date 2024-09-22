@@ -2761,6 +2761,11 @@ object.assign@^4.1.5:
     has-symbols "^1.0.3"
     object-keys "^1.1.1"
 
+oh-my-live2d@^0.19.3:
+  version "0.19.3"
+  resolved "https://registry.npmmirror.com/oh-my-live2d/-/oh-my-live2d-0.19.3.tgz"
+  integrity sha512-EWva8OUmcExIFIhqGkeiVPQt44RvYYFg+nmpkrZgQVQ+xofVFq4SDYAg5NcdK40HxyV4vORBJEg4OHIHP96MrA==
+
 once@^1.3.0:
   version "1.4.0"
   resolved "https://registry.npmmirror.com/once/-/once-1.4.0.tgz"
