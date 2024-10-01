@@ -31,10 +31,15 @@ onMounted(() => {
 <style scoped lang="scss">
 .card-container {
   perspective: 200px;
-  width: fit-content;
+  // width: fit-content;
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
 
   .card {
     width: 200px;
+    height: 233px;
     --brightness: 1;
     --rotateX: 0deg;
     --rotateY: 0deg;

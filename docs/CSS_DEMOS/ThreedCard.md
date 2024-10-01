@@ -1,1 +1,0 @@
-<preview title="ThreedCard" description="" path="../../demos/css/ThreedCard.vue"></preview>

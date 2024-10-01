@@ -2,3 +2,7 @@
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(120deg, #bd34fe, #41d1ff);
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
