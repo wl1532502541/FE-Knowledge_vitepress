@@ -5,7 +5,8 @@
 </template>
 <script setup>
 import {
-  ref
+  ref,
+  nextTick
 } from 'vue';
 import { useData } from 'vitepress'
 import { useToggle } from '@vueuse/core';
@@ -26,9 +27,10 @@ const handleChange = async (mode) => {
     return;
   }
 
-  await document.startViewTransition(() => {
+  await document.startViewTransition(async () => {
     // setTimeout(() => {
-    toggleDark()
+    toggleDark();
+    // await nextTick();
     // }, 0)
   }).ready;
   const { top, left } = switchRef.value.$el.getBoundingClientRect();
@@ -42,17 +44,19 @@ const handleChange = async (mode) => {
     Math.max(top, bottom),
   );
 
+  const clipPath = [
+    `circle(0px at ${x}px ${y}px)`,
+    `circle(${maxRadius}px at ${x}px ${y}px)`,
+  ]
+
   document.documentElement.animate(
     {
-      clipPath: [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${maxRadius}px at ${x}px ${y}px)`,
-      ],
+      clipPath: mode ? clipPath.reverse() : clipPath,
     },
     {
       duration: 500,
       easing: 'ease-in-out',
-      pseudoElement: '::view-transition-new(root)',
+      pseudoElement: mode ? '::view-transition-old(root)' : '::view-transition-new(root)',
     }
   );
 }
@@ -62,5 +66,21 @@ const handleChange = async (mode) => {
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+::view-transition-new(root) {
+  z-index: 2147483;
+}
+
+.dark::view-transition-old(root) {
+  z-index: 2147483;
+}
+
+.dark::view-transition-new(root) {
+  z-index: 1;
 }
 </style>
