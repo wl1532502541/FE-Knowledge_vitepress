@@ -1,8 +1,7 @@
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import CommentGiscus from './components/CommentGiscus.vue'
-import { NConfigProvider } from 'naive-ui';
-import { darkTheme } from 'naive-ui'
+import { NConfigProvider, darkTheme } from 'naive-ui'
 import { useData } from 'vitepress';
 
 const { isDark } = useData()
