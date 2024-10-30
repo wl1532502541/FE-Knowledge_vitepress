@@ -9,7 +9,7 @@
 
 ### 原理
 
-![Vue SFC Playground 简易版原理图](/FE-Knowledge2/vuesfcsimple.png)
+![Vue SFC Playground 简易版原理图](/vuesfcsimple.png)
 
 简易版 Vue SFC Playground 的主要组成部分和工作原理如下：
 
