@@ -17,6 +17,7 @@
   - [ ] TCP
 - [ ] 前后端通信
   - [ ] REST GraphQL GRPC TRPC
+  - [x] 使用fetch特性与sse实现chagpt式流式输出
 - [ ] 高频手写
 - [ ] 浏览器原理
 - [ ] 基础三大件
