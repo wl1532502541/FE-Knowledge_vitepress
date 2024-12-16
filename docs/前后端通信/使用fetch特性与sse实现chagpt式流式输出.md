@@ -12,8 +12,8 @@ const json = await response.json()
 reference：https://github.com/mdn/dom-examples/blob/main/streams/simple-pump/index.html
 
 #### 效果
-![image](./images/fetch-stream-effect.gif)
-![image](./images/fetch-stream-net.gif)
+![image](/fetch-stream-effect.gif)
+![image](/fetch-stream-net.gif)
 #### 代码
 服务端 
 
