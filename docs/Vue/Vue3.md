@@ -1,5 +1,6 @@
 ## dom diff核心算法——最长递增子序列
 
+
  Vue 会把我们编写的组件转换成虚拟 DOM 树，并且将虚拟 DOM 树进行比较后再根据变化情况更新真实 DOM。比如原有列表为 [a, b, c, d, e, f] ，而新列表为 [a, d, b, c, e, f]， 这时会这样进行 diff：
 
 - 去除相同前置和后置元素 ，此优化由 Neil Fraser 提出，可以比较容易实现而且带来带来比较明显的提升；
@@ -90,3 +91,17 @@ function getSequence(arr: number[]): number[] {
 注意
 - 此代码的实现假设输入数组 arr 中的元素都是非零的，因为它使用了 if (arrI !== 0) 来进行判断。如果你的应用场景中 0 是有效数据，需要调整这个条件。
 - 代码中的 p 数组用于记录在构建 LIS 过程中，每个元素在 LIS 中前一个元素的索引，这是重建 LIS 具体序列的关键。
+
+## Vue3.4 响应式重构——二维双链表
+
+对reactivity的优化，vue3.4 中引入了二维双链表，用于优化 reactivity 的性能。
+
+reference: https://juejin.cn/post/7345725753018236947
+
+## Vue3.5 响应式又重构——减少56%内存
+
+reference:
+
+1.官方 https://blog.vuejs.org/posts/vue-3-5#reactivity-system-optimizations
+
+2.https://www.cnblogs.com/heavenYJJ/p/18542806
