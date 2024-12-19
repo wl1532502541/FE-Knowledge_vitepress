@@ -1,15 +1,16 @@
 
 ### 为什么fetch有2个await??
-
+>reference : https://tomontheinternet.com/why-two-awaits/
 ```js
 const response = await fetch(...)
 const json = await response.json()
 ```
 
+
 因为第一个await等待的是请求头 第二个等待的是body，当body是流式数据的时候 我们就可以读取一点输出一点，实现chatgpt的流式输出效果
 
 ### fetch实现流式输出核心代码
-reference：https://github.com/mdn/dom-examples/blob/main/streams/simple-pump/index.html
+>reference：https://github.com/mdn/dom-examples/blob/main/streams/simple-pump/index.html
 
 #### 效果
 ![image](/fetch-stream-effect.gif)

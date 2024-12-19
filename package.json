@@ -10,7 +10,7 @@
     "postcss": "^8.4.47",
     "tailwindcss": "^3.4.13",
     "vite-plugin-pwa": "^0.14.4",
-    "vitepress": "^1.0.0-alpha.40"
+    "vitepress": "^1.5.0"
   },
   "scripts": {
     "docs:dev0": "node scripts/generateCssMarkdowns.js && vitepress dev docs",
